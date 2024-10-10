@@ -30,7 +30,7 @@ int main()
     //rectangle direction
     int direction{10};
 
-    bool collision_with_rectangle{true};
+    bool collision_with_rectangle{false};
 
     SetTargetFPS(60);
     while (WindowShouldClose() == false)
@@ -78,11 +78,25 @@ int main()
             {
                 circle_y -= 10;
             }
+
+            l_circle_x = circle_x - circle_radius;
+            r_circle_x = circle_x + circle_radius;
+            u_circle_y = circle_y - circle_radius;
+            b_circle_y = circle_y + circle_radius;
+
+            l_rectangle_x = rectangle_x;
+            r_rectangle_x = rectangle_x + rectangle_length;
+            u_rectangle_y = rectangle_y;
+            b_rectangle_y = rectangle_y + rectangle_length;
+
+            //CheckCollision
+            if (b_rectangle_y >= u_circle_y && u_rectangle_y <= b_circle_y && r_rectangle_x >= l_circle_x && l_rectangle_x <= r_circle_x)
+            {
+                collision_with_rectangle = true;
+            }
+            
             //Game logic ends
         }
-        
-
-
         
         EndDrawing();
     }

@@ -9,7 +9,7 @@ int main()
     InitWindow(width,heigth,"Marcos's Window");
 
     //circle attributes
-    int circle_x{200};
+    int circle_x{100};
     int circle_y{200};
     int circle_radius{25};
     //circle edges
